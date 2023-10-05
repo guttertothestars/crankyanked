@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>Is my Crank Yanked?</title>
+  <link rel="stylesheet" href="crankyanked.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <h1 class="blink centered-headline">#Thanks Shimano!</h1>
+  <p>Only cranksets produced between June 1, 2012, up to and including June 30, 2019, need to be inspected.</p>
+    <br>
+  <p>Dura-Ace and Ultegra cranksets with the following model numbers are 
+    affected: 
+    <ul>
+      <li>Ultegra FC-6800</li> 
+      <li>Ultegra FC-R8000</li>
+      <li>Dura-Ace FC-9000</li> 
+      <li>Dura-Ace FC-R9100</li> 
+     <li>Dura-Ace FC-R9100-P</li>
+    </ul>
+    <p>Shimano says the model number is stamped on the inside of the crank arm near the bottom of the arm.</p>
+    <br>
+  <p>Is Crank Model one of the affected models?</p>
+  <br>
+  <p>Check for yes: <input type="checkbox" id="checkbox1" class="custom-checkbox"></p>
+  
+    <br>
+  <img src="images/shimanorecall.avif" alt="Section of crankset with model and production info">
+  <label class="textInput" for="textInput">Enter manufacturing code (2 characters): </label>
+  <input type="text" id="textInput" maxlength="2"><br>
+
+  <div class="centered-container">
+    <button class="centered-container" onclick="checkConditions()">Check Crank Status</button>
+  </div>
+  <script>
+    function checkConditions() {
+      const checkbox1Checked = document.getElementById('checkbox1').checked;
+      const textInputValue = document.getElementById('textInput').value.toUpperCase();
+
+      const validTextArray = [
+        'KF', 'KG', 'KH', 'KI', 'KJ', 'KK', 'KL', 'LA', 'LB', 'LC',
+        'LD', 'LE', 'LF', 'LG', 'LH', 'LI', 'LJ', 'LK', 'LL', 'MA',
+        'MB', 'MC', 'MD', 'ME', 'MF', 'MG', 'MH', 'MI', 'MJ', 'MK',
+        'ML', 'NA', 'NB', 'NC', 'ND', 'NE', 'NF', 'NG', 'NH', 'NI',
+        'NJ', 'NK', 'NL', 'OA', 'OB', 'OC', 'OD', 'OE', 'OF', 'OG',
+        'OH', 'OI', 'OJ', 'OK', 'OL', 'PA', 'PB', 'PC', 'PD', 'PE',
+        'PF', 'PG', 'PH', 'PI', 'PJ', 'PK', 'PL', 'QA', 'QB', 'QC',
+        'QD', 'QE', 'QF', 'QG', 'QH', 'QI', 'QJ', 'QK', 'QL', 'RA',
+        'RB', 'RC', 'RD', 'RE', 'RF'
+      ];
+
+      if (checkbox1Checked && validTextArray.includes(textInputValue)) {
+        alert('Crank yanked! Get thee to a Shimano dealer');
+      } else {
+        alert('Crank not yanked!');
+      }
+    }
+  </script>
+
+</body>
+</html>
